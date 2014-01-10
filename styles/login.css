@@ -1,0 +1,29 @@
+.login h1 a
+{
+    background-image: url(../images/iworks-wordpress-logo.png?ver=20131229);
+    background-image: none, url(../images/iworks-wordpress-logo.svg?ver=20131229);
+}
+
+.iworks_footer
+{
+    position: absolute;
+    right: 20px;
+    text-align: right;
+    top: 20px;
+}
+
+.iworks_footer a
+{
+    background: transparent url(../images/iworks-logo.png?ver=20131229) no-repeat 0 50%;
+    background-image: none, url(../images/iworks-logo.svg?ver=20131229);
+    background-size: 16px;
+    color: black;
+    padding: 5px 0 5px 20px;
+    text-decoration: none;
+}
+
+.iworks_footer a:hover
+{
+    color: red;
+}
+

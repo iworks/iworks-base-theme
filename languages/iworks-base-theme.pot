@@ -1,0 +1,243 @@
+# Copyright (C) 2014 iWorks Marcin Pietrzak
+# This file is distributed under the same license as the Generic iWorks Theme package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Generic iWorks Theme XX.XX\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/iworks-base-theme\n"
+"POT-Creation-Date: 2014-01-10 08:57:11+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
+"Language-Team: Marcin Pietrzak <marcin@iworks.pl>\n"
+
+#: 404.php:20
+msgid "Page not found"
+msgstr ""
+
+#: 404.php:21 empty.php:19
+msgid "Sorry, no posts matched your criteria."
+msgstr ""
+
+#: add-ons/class-iworks-columns-shortcode.php:107
+msgid "Read more"
+msgstr ""
+
+#: add-ons/iworks-widget-smart-menu/class-iworks-widget-smart-menu.php:10
+#: add-ons/iworks-widget-smart-menu/class-iworks-widget-smart-menu.php:12
+msgid "Smart Menu"
+msgstr ""
+
+#: add-ons/iworks-widget-smart-menu/iworks-widget-smart-menu.php:18
+msgid "Yes"
+msgstr ""
+
+#: add-ons/iworks-widget-smart-menu/iworks-widget-smart-menu.php:19
+msgid "No"
+msgstr ""
+
+#: add-ons/iworks-widget-smart-menu/iworks-widget-smart-menu.php:36
+msgid "Show in Smart Menu"
+msgstr ""
+
+#: etc/options.php:31
+msgid "General settings"
+msgstr ""
+
+#: etc/options.php:37
+msgid "Add description"
+msgstr ""
+
+#: etc/options.php:40
+msgid "Turn on to add description after title."
+msgstr ""
+
+#: etc/options.php:46
+msgid "Content settings"
+msgstr ""
+
+#: etc/options.php:52
+msgid "Excerpt length"
+msgstr ""
+
+#: etc/options.php:61
+msgid "Image sizes"
+msgstr ""
+
+#: etc/options.php:62
+msgid "Convert"
+msgstr ""
+
+#: etc/options.php:65
+msgid ""
+"Turn on to convert \"width\" & \"height\" image attributes to \"data-\" "
+"attributes."
+msgstr ""
+
+#: functions.php:64
+msgid "View all posts by %s"
+msgstr ""
+
+#: functions.php:78
+msgid ""
+"<span class=\"meta-sep\">Published by</span> <i>%1$s</i> <span class=\"meta-"
+"sep\">|</span> <span class=\"%2$s\">Posted date</span> %3$s"
+msgstr ""
+
+#: functions.php:87
+msgid "<span class=\"%1$s\">Posted in</span> %2$s"
+msgstr ""
+
+#: functions.php:96
+msgid "<span class=\"%1$s\">Tagged</span> %2$s"
+msgstr ""
+
+#: functions.php:100
+msgid "Leave a comment"
+msgstr ""
+
+#: functions.php:100
+msgid "1 Comment"
+msgstr ""
+
+#: functions.php:100
+msgid "% Comments"
+msgstr ""
+
+#: functions.php:101
+msgid "Edit"
+msgstr ""
+
+#: header.php:39
+msgid "Page %s"
+msgstr ""
+
+#: includes/class-iworks-theme.php:295 includes/class-iworks-theme.php:296
+msgid "Theme Options"
+msgstr ""
+
+#: includes/class-iworks-theme.php:363
+msgid "Error: no callback function!"
+msgstr ""
+
+#: includes/class-iworks-theme.php:437
+msgid ""
+"Error: empty values array for radio field, please fill \"values\" argument."
+msgstr ""
+
+#: includes/class-iworks-theme.php:463
+msgid "Upload image"
+msgstr ""
+
+#: includes/class-iworks-theme.php:470
+msgid "Delete image"
+msgstr ""
+
+#: includes/class-iworks-theme.php:539
+msgid "%s Theme Options"
+msgstr ""
+
+#: includes/class-iworks-theme.php:771
+msgid "Default Sidebar"
+msgstr ""
+
+#: includes/class-iworks-theme.php:791
+msgid "Default"
+msgstr ""
+
+#: includes/class-iworks-theme.php:792
+msgid "Bottom"
+msgstr ""
+
+#: includes/class-iworks-theme.php:825 includes/class-iworks-theme.php:990
+msgid "break the web"
+msgstr ""
+
+#: includes/class-iworks-theme.php:927
+msgid "Visit our page!"
+msgstr ""
+
+#: includes/class-iworks-theme.php:946
+msgid "--==< Select page >==--"
+msgstr ""
+
+#: includes/class-iworks-theme.php:960
+msgid "--==< Select category >==--"
+msgstr ""
+
+#: includes/class-iworks-theme.php:1020
+msgid ""
+"%s Theme powered by <a href=\"http://iworks.pl/?utm_source="
+"%s&utm_medium=theme&utm_campaign=wordpress\">iWorks Marcin Pietrzak</a>"
+msgstr ""
+
+#: includes/generic_iworks_theme.php:24
+msgid "Technical information"
+msgstr ""
+
+#: includes/profile.php:17
+msgid "Google Profile URL"
+msgstr ""
+
+#: includes/profile.php:18
+msgid "Twitter Profile URL"
+msgstr ""
+
+#: includes/profile.php:19
+msgid "Facebook Profile URL"
+msgstr ""
+
+#: includes/profile.php:20
+msgid "LinkedIn Profile URL"
+msgstr ""
+
+#: index.php:21
+msgid "Permalink to %s"
+msgstr ""
+
+#: index.php:32
+msgid "(more...)"
+msgstr ""
+
+#: index.php:34
+msgid "More..."
+msgstr ""
+
+#: single.php:29
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: single.php:30
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr ""
+
+#: vendor/iworks/options.php:96
+msgid "An error occurred while getting the configuration."
+msgstr ""
+
+#: vendor/iworks/options.php:509
+msgid "Save Changes"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Generic iWorks Theme"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://iworks.pl/Generic_iWorks_Theme_URL"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "developed by <a href=\"http://iworks.pl/\">Marcin Pietrzak</a>"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "iWorks Marcin Pietrzak"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://iworks.pl/"
+msgstr ""

@@ -1,0 +1,24 @@
+/* 
+Theme Name: Generic iWorks Theme
+Theme URI: http://iworks.pl/Generic_iWorks_Theme_URL
+Description: developed by <a href="http://iworks.pl/">Marcin Pietrzak</a>
+Version: XX.XX
+Author: iWorks Marcin Pietrzak
+Author URI: http://iworks.pl/
+Tags: two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, custom-menu
+
+
+ */*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}body
+,#header ul
+,#footer ul{border:0;margin:0;outline:0;padding:0;}table{border-collapse:collapse;}#header
+,#header .mask{width:100%;}#access ul{list-style:none;}a{text-decoration:none;}#logo span{display:none;}.excerpt{line-height:1.5em;}#menu-main .menu-item-home{overflow:hidden;}.nowrap{white-space:nowrap;}#menu-main .menu-item-home{background:transparent url(images/default.png?v=1) no-repeat;}body{color:#000;background-color:#fff;font-family:sans-serif;}article{overflow:hidden;}td
+,th{border:1px solid #ddd;padding:3px;}#logo{width:100px;height:100px;background:transparent url(images/iworks-logo.png?ver=20131229) no-repeat 50%;background-image:none, url(images/iworks-logo.svg?ver=20131229);background-size:80px;margin:0 auto;}.wide{margin:0 auto;width:1200px;}#content{width:74%;float:left;}#sidebar{float:left;width:26%;}.hentry img{max-width:100%;height:auto;}.sticky{border:1px solid red;}.wp-caption{border:1px solid #000;margin-bottom:1em;max-width:100%;padding:1px;}.wp-caption.alignnone{clear:both;max-width:100%;}.wp-caption-text{}.gallery-caption{}.bypostauthor{}#header nav li
+,#footer nav li{float:left;}#header nav a
+,#footer nav a{display:block;padding:10px 20px;}#header nav a:hover
+,#footer nav a:hover{background-color:#eff;}.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}#content .alignleft,
+#content img.alignleft{display:inline;float:left;margin-right:24px;margin-top:4px}#content .alignright,
+#content img.alignright{display:inline;float:right;margin-left:24px;margin-top:4px}#content .aligncenter,
+#content img.aligncenter{clear:both;display:block;margin-left:auto;margin-right:auto}#content img.alignleft,
+#content img.alignright,
+#content img.aligncenter{margin-bottom:12px}@media screen and (max-width:1200px){.wide{width:100%;}}@media screen and (max-width:800px){#content ,#sidebar{float:none;width:96%;margin:0 2%;}#header .description ,.entry-meta{display:none;}#header:after{}.thumbnail-icon img{max-width:100%;margin:0 auto;display:block;}}@media all and (orientation:landscape){}@media all and (orientation:portrait){}#content{background-color:#dee;}#header
+,#footer{background-color:#ede;}#sidebar{background-color:#eed;}

@@ -1,0 +1,338 @@
+# Copyright (C) 2013 iWorks Marcin Pietrzak
+# This file is distributed under the same license as the Generic iWorks Theme package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Generic iWorks Theme XX.XX\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/iworks-base-theme\n"
+"POT-Creation-Date: 2014-01-10 08:57:11+00:00\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
+"Language-Team: Marcin Pietrzak <marcin@iworks.pl>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 404.php:20
+msgid "Page not found"
+msgstr "Nie znaleziono strony"
+
+#: 404.php:21 empty.php:19
+msgid "Sorry, no posts matched your criteria."
+msgstr "Brak wpisów spełniających zapytanie."
+
+#: add-ons/class-iworks-columns-shortcode.php:107
+msgid "Read more"
+msgstr "Czytaj dalej"
+
+#: add-ons/iworks-widget-smart-menu/class-iworks-widget-smart-menu.php:10
+#: add-ons/iworks-widget-smart-menu/class-iworks-widget-smart-menu.php:12
+msgid "Smart Menu"
+msgstr "Sprytne Menu"
+
+#: add-ons/iworks-widget-smart-menu/iworks-widget-smart-menu.php:18
+msgid "Yes"
+msgstr "Tak"
+
+#: add-ons/iworks-widget-smart-menu/iworks-widget-smart-menu.php:19
+msgid "No"
+msgstr "Nie"
+
+#: add-ons/iworks-widget-smart-menu/iworks-widget-smart-menu.php:36
+msgid "Show in Smart Menu"
+msgstr "Pokaż w Sprytnym Menu"
+
+#: etc/options.php:31
+msgid "General settings"
+msgstr "Ustawienia ogólne"
+
+#: etc/options.php:37
+msgid "Add description"
+msgstr "Dodaj opis"
+
+#: etc/options.php:40
+msgid "Turn on to add description after title."
+msgstr "Włącz wyświetlanie opisu po tytule."
+
+#: etc/options.php:46
+msgid "Content settings"
+msgstr "Ustawienia treści"
+
+#: etc/options.php:52
+msgid "Excerpt length"
+msgstr "Długość wypisu"
+
+#: etc/options.php:61
+msgid "Image sizes"
+msgstr "Rozmiar obrazków"
+
+#: etc/options.php:62
+msgid "Convert"
+msgstr "Zmień"
+
+#: etc/options.php:65
+msgid ""
+"Turn on to convert \"width\" & \"height\" image attributes to \"data-\" "
+"attributes."
+msgstr ""
+"Włącz, żeby zmienić atrybuty obrazków: \"width\" & \"height\" na właścicwości"
+"\"data-\"."
+
+#: functions.php:64
+msgid "View all posts by %s"
+msgstr "Zobacz wszystkie wpisy, których autorem jest: %s"
+
+#: functions.php:78
+msgid ""
+"<span class=\"meta-sep\">Published by</span> <i>%1$s</i> <span class=\"meta-"
+"sep\">|</span> <span class=\"%2$s\">Posted date</span> %3$s"
+msgstr ""
+"<span class=\"meta-sep\">Opublikowane przez</span> <i>%1$s</i> <span class="
+"\"meta-sep\">|</span> <span class=\"%2$s\">Data publikacji</span> %3$s"
+
+#: functions.php:87
+msgid "<span class=\"%1$s\">Posted in</span> %2$s"
+msgstr "<span class=\"%1$s\">Opublikowano w</span> %2$s"
+
+#: functions.php:96
+msgid "<span class=\"%1$s\">Tagged</span> %2$s"
+msgstr "<span class=\"%1$s\">Tagi</span> %2$s"
+
+#: functions.php:100
+msgid "Leave a comment"
+msgstr "Dodaj komentarz"
+
+#: functions.php:100
+msgid "1 Comment"
+msgstr "Jeden komentarz"
+
+#: functions.php:100
+msgid "% Comments"
+msgstr "Liczba komentarzy: %"
+
+#: functions.php:101
+msgid "Edit"
+msgstr "Edytuj"
+
+#: header.php:39
+msgid "Page %s"
+msgstr "Strona %s"
+
+#: includes/class-iworks-theme.php:295 includes/class-iworks-theme.php:296
+msgid "Theme Options"
+msgstr "Opcje motywu"
+
+#: includes/class-iworks-theme.php:363
+msgid "Error: no callback function!"
+msgstr "Błąd: brak funkcji callback"
+
+#: includes/class-iworks-theme.php:437
+msgid ""
+"Error: empty values array for radio field, please fill \"values\" argument."
+msgstr ""
+"Błąd: pusta tablica wartości dla pól radio, proszę wypełnić argument \"values"
+"\"."
+
+#: includes/class-iworks-theme.php:463
+msgid "Upload image"
+msgstr "Prześlij obrazek"
+
+#: includes/class-iworks-theme.php:470
+msgid "Delete image"
+msgstr "Skasuj obrazek"
+
+#: includes/class-iworks-theme.php:539
+msgid "%s Theme Options"
+msgstr "Opcje motywu: %s"
+
+#: includes/class-iworks-theme.php:771
+msgid "Default Sidebar"
+msgstr "Domyślny"
+
+#: includes/class-iworks-theme.php:791
+msgid "Default"
+msgstr "Domyślny"
+
+#: includes/class-iworks-theme.php:792
+msgid "Bottom"
+msgstr "Dolny"
+
+#: includes/class-iworks-theme.php:825 includes/class-iworks-theme.php:990
+msgid "break the web"
+msgstr "przełam sieć"
+
+#: includes/class-iworks-theme.php:927
+msgid "Visit our page!"
+msgstr "Odwiedź naszą stronę!"
+
+#: includes/class-iworks-theme.php:946
+msgid "--==< Select page >==--"
+msgstr "--==< Wybierz stronę >==--"
+
+#: includes/class-iworks-theme.php:960
+msgid "--==< Select category >==--"
+msgstr "--==< Wybierz kategorię >==--"
+
+#: includes/class-iworks-theme.php:1020
+msgid ""
+"%s Theme powered by <a href=\"http://iworks.pl/?utm_source="
+"%s&utm_medium=theme&utm_campaign=wordpress\">iWorks Marcin Pietrzak</a>"
+msgstr ""
+"%s Motyw zakodowany przez <a href=\"http://iworks.pl/?utm_source="
+"%s&utm_medium=theme&utm_campaign=wordpress\">iWorks Marcin Pietrzak</a>"
+
+#: includes/generic_iworks_theme.php:24
+msgid "Technical information"
+msgstr "Informacje techniczne"
+
+#: includes/profile.php:17
+msgid "Google Profile URL"
+msgstr "URL do profilu Google"
+
+#: includes/profile.php:18
+msgid "Twitter Profile URL"
+msgstr "URL do profilu Twitter"
+
+#: includes/profile.php:19
+msgid "Facebook Profile URL"
+msgstr "URL do profilu Facebook"
+
+#: includes/profile.php:20
+msgid "LinkedIn Profile URL"
+msgstr "URL do profilu LinkedIn"
+
+#: index.php:21
+msgid "Permalink to %s"
+msgstr "Stały odnośnik do %s"
+
+#: index.php:32
+msgid "(more...)"
+msgstr "(więcej...)"
+
+#: index.php:34
+msgid "More..."
+msgstr "Więcej..."
+
+#: single.php:29
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: single.php:30
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#: vendor/iworks/options.php:96
+msgid "An error occurred while getting the configuration."
+msgstr "Wystąpił błąd w czasie pobierania konfiguracji."
+
+#: vendor/iworks/options.php:509
+msgid "Save Changes"
+msgstr "Zapisz"
+
+#. Theme Name of the plugin/theme
+msgid "Generic iWorks Theme"
+msgstr "Generic iWorks Theme"
+
+#. Theme URI of the plugin/theme
+msgid "http://iworks.pl/Generic_iWorks_Theme_URL"
+msgstr "http://iworks.pl/Generic_iWorks_Theme_URL"
+
+#. Description of the plugin/theme
+msgid "developed by <a href=\"http://iworks.pl/\">Marcin Pietrzak</a>"
+msgstr "developed by <a href=\"http://iworks.pl/\">Marcin Pietrzak</a>"
+
+#. Author of the plugin/theme
+msgid "iWorks Marcin Pietrzak"
+msgstr "iWorks Marcin Pietrzak"
+
+#. Author URI of the plugin/theme
+msgid "http://iworks.pl/"
+msgstr "http://iworks.pl/"
+
+#~ msgid "l, F jS, Y"
+#~ msgstr "l, F jS, Y"
+
+#~ msgid "F, Y"
+#~ msgstr "F, Y"
+
+#~ msgid "Author Archives: %s"
+#~ msgstr "Archiwum autora: %s"
+
+#~ msgid ""
+#~ "This post is password protected. Enter the password to view any comments."
+#~ msgstr "Wpis jest chroniony hasłem, proszę wpisać je w poniższe pole."
+
+#~ msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+#~ msgstr "<span class=\"meta-nav\">&larr;</span> Starsze komentarze"
+
+#~ msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+#~ msgstr "Nowsze komentarze <span class=\"meta-nav\">&rarr;</span>"
+
+#~ msgid "Comments are closed."
+#~ msgstr "Możliwość komentowania jest wyłączona."
+
+#~ msgid "more &raquo;"
+#~ msgstr "więcej &raquo;"
+
+#~ msgid "Search on page:"
+#~ msgstr "Szukaj na stronie:"
+
+#~ msgid "Client Area"
+#~ msgstr "Panel Klienta"
+
+#~ msgid "Pages"
+#~ msgstr "Strony"
+
+#~ msgid "Enter URL to Client Area"
+#~ msgstr "Wprowadź adres do Panelu Klienta"
+
+#~ msgid "ASM Group"
+#~ msgstr "Grupa ASM"
+
+#~ msgid "Categories"
+#~ msgstr "Kategorie"
+
+#~ msgid "News category to main page"
+#~ msgstr "Kategoria nowości na stronę główną"
+
+#~ msgid "Contact page map"
+#~ msgstr "Mapa dla strony Kontakt"
+
+#~ msgid "Map"
+#~ msgstr "Mapa"
+
+#~ msgid "Other options"
+#~ msgstr "Inne opcje"
+
+#~ msgid "arrow"
+#~ msgstr "strzałka"
+
+#~ msgid "simple"
+#~ msgstr "prosty"
+
+#~ msgid "Sidebar for pages"
+#~ msgstr "Dla stron"
+
+#~ msgid "Sidebar for selected pages"
+#~ msgstr "Panel dla wybranych stron"
+
+#~ msgid "Footer 1 Sidebar"
+#~ msgstr "Panel 1 w stopce"
+
+#~ msgid "Footer 2 Sidebar"
+#~ msgstr "Panel 2 w stopce"
+
+#~ msgid ""
+#~ "<span class=\"%1$s\">Posted date</span> <a href=\"%2$s\" title=\"%3$s"
+#~ "\"><span class=\"entry-date updated\" title=\"%4$s\">%5$s</span></a>"
+#~ msgstr ""
+#~ "<span class=\"%1$s\">opublikowano</span> <a href=\"%2$s\" title=\"%3$s"
+#~ "\"><span class=\"entry-date updated\" title=\"%4$s\">%5$s</span></a>"
+
+#~ msgid "Contact"
+#~ msgstr "Kontakt"
+
+#~ msgid "Full Width Page"
+#~ msgstr "Cała szerokość"

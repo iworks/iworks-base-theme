@@ -29,4 +29,9 @@ function iworks_tabulator_init()
     jQuery('#hasadmintabs ul a').click(function(i){
         jQuery('#hasadmintabs input[name=iworks_upprev_last_used_tab]').val(jQuery(this).parent().index());
     });
+    jQuery('#hasadmintabs h3').parent().parent().each(function(){
+        if(jQuery(this).is('tr')){
+            jQuery(this).hide();
+        }
+    });
 }

@@ -64,6 +64,17 @@ return array(
             'default' => 1,
             'description' => __( 'Turn on to convert "width" & "height" image attributes to "data-" attributes.', IWORKS_THEME_NAME ),
         ),
+        /**
+         * Social Media
+         */
+        array(
+            'label' => __( 'Social Media', IWORKS_THEME_NAME ),
+            'type' => 'heading',
+        ),
+        array(
+            'label' => __( 'Facebook', IWORKS_THEME_NAME ),
+            'type' => 'subheading',
+        ),
     ),
 );
 

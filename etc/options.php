@@ -18,7 +18,8 @@ return array(
     'use_tabs' => true,
     'version'  => '0.0',
     'options'  => array(
-        'last_used_tab' => array(
+        array(
+            'name' => 'last_used_tab',
             'type'              => 'hidden',
             'autoload'          => false,
             'sanitize_callback' => 'intval',

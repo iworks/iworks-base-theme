@@ -583,9 +583,7 @@ return;
     public function login_footer()
     {
         printf( '<div class="iworks_footer"><a href="http://iworks.pl/?referrer=%s>">%s</a></div>', urlencode( home_url() ), __( 'break the web', IWORKS_THEME_NAME ) );
-        $screen = get_current_screen();
     }
-
 
     /**
      * login screen

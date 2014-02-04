@@ -25,7 +25,6 @@ if ( !function_exists( 'iworks_theme_action_wp_dashboard_setup' ) ) {
     }
 }
 
-/*
 class Generic_iWorks_Theme_Class extends iWorks_Theme_Class
 {
     public function __construct()
@@ -33,4 +32,4 @@ class Generic_iWorks_Theme_Class extends iWorks_Theme_Class
         parent::__construct();
     }
 }
-*/
+

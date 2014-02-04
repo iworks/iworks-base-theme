@@ -8,7 +8,7 @@
  * @package    WordPress
  * @subpackage iWorks
  * @author     Marcin Pietrzak <marcin@iworks.pl>
- * @license    http://iworks.pl/ commercial
+ * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @version    3.0.0
  * @link       http://iworks.pl/
  *
@@ -213,37 +213,6 @@ class iWorks_Theme_Class
     public function admin_init()
     {
         $this->options->options_init();
-        $section_id = false;
-        foreach( $this->theme_options as $field_id => $data ) {
-            /**
-             * set section_id
-             */
-            if ( 'menu' == $this->display_mode && 'section' == $data['type'] ) {
-                $section_id = crc32( $data['title'] );
-            }
-            /**
-             * don't register (sub)sections
-             */
-            if ( preg_match( '/^(sub)?section$/', $data['type'] ) ) {
-                continue;
-            }
-            /**
-             * option_group
-             */
-            $option_group = $this->options->get_option_name($this->option_group);
-            if ( 'menu' == $this->display_mode ) {
-                $option_group .= '_' . $section_id;
-            }
-            /**
-             * register_setting
-             */
-            if ( isset( $data['sanitize_callback'] ) ) {
-                register_setting( $option_group, $this->theme_options_prefix . $field_id, $data['sanitize_callback'] );
-            } else {
-                register_setting( $option_group, $this->theme_options_prefix . $field_id );
-            }
-        }
-        $this->add_settings_field( $this->theme_page );
     }
 
     private function get_theme_name()
@@ -273,7 +242,11 @@ class iWorks_Theme_Class
                 61.42604420746308
             );
             foreach( $this->theme_options as $field_id => $data ) {
+                if ( !array_key_exists( 'type', $data ) ) {
+                    continue;
+                }
                 if ( 'section' != $data['type'] ) {
+                    d( $data );
                     continue;
                 }
                 $subpage = add_submenu_page(
@@ -307,219 +280,6 @@ class iWorks_Theme_Class
          */
         add_action( 'load-'.$page, array( &$this, 'theme_options_help' ) );
         add_action( 'admin_print_scripts-'.$page, array( &$this, 'admin_print_scripts' ) );;
-    }
-
-    private function add_settings_field()
-    {
-        foreach( $this->theme_options as $field_id => $data ) {
-            $id = $this->theme_options_prefix . $field_id;
-            $args = array_merge( $data, array( 'label_for' => $id, 'field_id' => $field_id ) );
-            switch ( $data['type'] ) {
-            case 'section':
-                add_settings_section(
-                    IWORKS_THEME_NAME,
-                    $data['title'],
-                    isset( $data['callback'] )? $data['callback']:null,
-                    $this->theme_page
-                );
-                break;
-            case 'callback':
-            case 'checkbox':
-            case 'color':
-            case 'hidden':
-            case 'image':
-            case 'info':
-            case 'number':
-            case 'radio':
-            case 'text':
-            case 'textarea':
-                add_settings_field (
-                    $id,
-                    isset( $data['title'] )? $data['title']:$field_id,
-                    array( &$this, 'setting_callback_function' ),
-                    $this->theme_page,
-                    IWORKS_THEME_NAME,
-                    $args
-                );
-                break;
-            case 'subsection':
-                // do nothing
-                break;
-            default:
-               // d( $data );
-                break;
-            }
-        }
-    }
-
-    public function setting_callback_function($args)
-    {
-        ob_start();
-        switch( $args['type'] ) {
-        case 'callback':
-            if ( isset( $args['callback'] ) && is_callable( $args['callback'] ) ) {
-                call_user_func( $args['callback'], $args['field_id'] );
-            } else {
-                _e( 'Error: no callback function!', IWORKS_THEME_NAME );
-            }
-            break;
-        case 'text':
-        case 'number':
-            printf(
-                '<input type="%s" name="%s%s" id="%s%s" value="%s" placeholder="%s" class="%s"%s%s%s />',
-                $args['type'],
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $this->get_option( $args['field_id'] ),
-                isset( $args['placeholder'] )? $args['placeholder']:$args['title'],
-                isset( $args['class'] )? $args['class']:'small-text',
-                isset( $args['min'] )? ' min="'.$args['min'].'"':'',
-                isset( $args['max'] )? ' max="'.$args['max'].'"':'',
-                ( isset( $args['sanitize_callback'] ) && 'intval' == $args['sanitize_callback'] )? ' pattern="\d+"':( isset( $args['pattern'] )? ' pattern="'.$args['pattern'].'"':'' )
-            );
-            if ( isset( $args['description'] ) ) {
-                printf( '<p class="description">%s</p>', $args['description'] );
-            }
-            break;
-        case 'textarea':
-            if ( isset( $args['description'] ) ) {
-                printf( '<p class="description">%s</p>', $args['description'] );
-            }
-            printf(
-                '<textarea name="%s%s" id="%s%s" class="large-text code %s" style="%s" rows="10" cols="50">%s</textarea>',
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $this->theme_options_prefix,
-                $args['field_id'],
-                isset( $args['class'] )? $args['class']:'',
-                isset( $args['style'] )? $args['style']:'',
-                $this->get_option( $args['field_id'] )
-            );
-            break;
-        case 'checkbox':
-            printf(
-                '<input type="%s" name="%s%s" id="%s" value="1" %s />',
-                $args['type'],
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $args['label_for'],
-                1 == $this->get_option( $args['field_id'] )? 'checked="checked"':''
-            );
-            if ( isset( $args['description'] ) ) {
-                printf( '<p class="description">%s</p>', $args['description'] );
-            }
-            break;
-        case 'radio':
-            if ( isset( $args['description'] ) ) {
-                printf( '<p class="description">%s</p>', $args['description'] );
-            }
-            if ( isset( $args['values'] ) && count( $args['values'] ) ) {
-                echo '<ul>';
-                foreach( $args['values'] as $key => $value ) {
-                    printf(
-                        '<li><input type="%s" name="%s%s" id="%s_%s" value="%s" %s /> <label for="%s_%s">%s</label></li>',
-                        $args['type'],
-                        $this->theme_options_prefix,
-                        $args['field_id'],
-                        $args['field_id'],
-                        $key,
-                        $key,
-                        $key == $this->get_option( $args['field_id'] )? 'checked="checked"':'',
-                        $args['field_id'],
-                        $key,
-                        $value
-                    );
-                }
-                echo '</ul>';
-            } else {
-                _e( 'Error: empty values array for radio field, please fill "values" argument.', IWORKS_THEME_NAME );
-            }
-            break;
-        case 'image':
-            if ( isset( $args['description'] ) ) {
-                printf( '<p class="description">%s</p>', $args['description'] );
-            }
-            $value = $this->get_option( $args['field_id'] );
-            printf(
-                '<img id="%s%s_img" src="%s" alt="" style="max-width: %dpx; max-height: %dpx; clear: right;display: block;margin-bottom: 10px;" />',
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $value? $value : '',
-                $args['max-width'],
-                $args['max-height']
-            );
-            printf(
-                '<input type="hidden" name="%s%s" id="%s%s" value="%s" />',
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $value
-            );
-            printf(
-                ' <input type="button" class="button iworks_upload_button" value="%s" rel="#%s%s" />',
-                __( 'Upload image', IWORKS_THEME_NAME ),
-                $this->theme_options_prefix,
-                $args['field_id']
-            );
-            if (  $value != $this->get_default_value( $args['field_id'] ) ) {
-                printf(
-                    ' <input type="submit" class="button iworks_delete_button" value="%s" rel="#%s%s" />',
-                    __( 'Delete image', IWORKS_THEME_NAME ),
-                    $this->theme_options_prefix,
-                    $args['field_id']
-                );
-            }
-            break;
-        case 'info':
-            if ( isset( $args['callback'] ) && is_callable( $args['callback'] ) ) {
-                call_user_func( $args['callback'], $args['field_id'] );
-            } else {
-                printf( '<p>%s</p>', $this->get_option( $args['field_id'] ) );
-                printf(
-                    '<input type="hidden" value="%s" name="%s%s" />',
-                    $this->get_option( $args['field_id'] ),
-                    $this->theme_options_prefix,
-                    $args['field_id']
-                );
-            }
-            if ( isset( $args['description'] ) ) {
-                printf( '<p class="description">%s</p>', $args['description'] );
-            }
-            break;
-        case 'hidden':
-            printf(
-                '<input type="hidden" name="%s%s" value="%s" />',
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $this->get_option( $args['field_id'] )
-            );
-            break;
-        case 'color':
-            if ( is_admin() ) {
-                wp_enqueue_script( 'iris' );
-            }
-            if ( isset( $args['description'] ) ) {
-                printf( '<p class="description">%s</p>', $args['description'] );
-            }
-            printf(
-                '<input type="text" name="%s%s" id="%s%s" value="%s" class="color-picker" />',
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $this->theme_options_prefix,
-                $args['field_id'],
-                $this->get_option( $args['field_id'] )
-            );
-            break;
-        default:
-            d( $args );
-            break;
-        }
-        $content = ob_get_contents();
-        ob_end_clean();
-        return $content;
     }
 
     private function render_admin_page_begin()
@@ -823,9 +583,7 @@ return;
     public function login_footer()
     {
         printf( '<div class="iworks_footer"><a href="http://iworks.pl/?referrer=%s>">%s</a></div>', urlencode( home_url() ), __( 'break the web', IWORKS_THEME_NAME ) );
-        $screen = get_current_screen();
     }
-
 
     /**
      * login screen
@@ -910,57 +668,11 @@ return;
 
     public function theme_options_help()
     {
-        $screen = get_current_screen();
-        foreach( $this->theme_options as $options_name => $option ) {
-            if ( 'section' != $option['type'] ) {
-                continue;
-            }
-            $screen->add_help_tab(
-                array(
-                    'id' => $options_name,
-                    'title' => $option['title'],
-                    'content' => isset( $option['help'] )? $option['help']:'',
-                    'callback' => isset( $option['help_callback'] )? $option['help_callback']:'',
-                ) );
-        }
-        $screen->set_help_sidebar(
-            sprintf( '<p>%s</p>', __( 'Visit our page!', IWORKS_THEME_NAME ) )
-        );
     }
 
     protected function get_help($name)
     {
         get_template_part( 'helps/admin', $name );
-    }
-
-    /**
-     * build dropdown select with pages
-     */
-    public function theme_options_page_helper($name)
-    {
-        wp_dropdown_pages(
-            array(
-                'name' => $this->theme_options_prefix.$name,
-                'option_none_value' => 0,
-                'selected' => $this->get_option( $name, false ),
-                'show_option_none' => __( '--==< Select page >==--', IWORKS_THEME_NAME ),
-            )
-        );
-    }
-
-    /**
-     * build dropdown select with categories
-     */
-    public function theme_options_category_helper($name)
-    {
-        wp_dropdown_categories(
-            array(
-                'name' => $this->theme_options_prefix.$name,
-                'selected' => $this->get_option( $name, false ),
-                'show_option_none' => __( '--==< Select category >==--', IWORKS_THEME_NAME ),
-                'hide_empty' => false,
-            )
-        );
     }
 
     protected function slug_name($name = false)
@@ -1023,34 +735,3 @@ return;
         );
     }
 }
-
-/**
-
-= CHANGLOG =
-
-== 3.0.0 ( 2013-12-31) ==
-
-* IMPROVMENT: add default css rules
-* REFACTORING: massive refactoring
-
-== 2.2.0 ( 2013-12-29) ==
-
-* IMPROVMENT: add dev variable
-* REFACTORING: code reorganization
-
-== 2.1.1 ==
-
-* IMPROVMENT: move style.css to action
-* IMPROVMENT: small html5 tweeking
-
-== 2.1 ==
-
-* IMPROVMENT: add category selector helper
-* IMPROVMENT: add add_theme_supports( 'html5' ) as default
-* IMPROVMENT: remove capabilites: edit_themes, edit_plugins
-
-== 2.0 ==
-
-* #IMPROVMENT: start numering version
-
- */

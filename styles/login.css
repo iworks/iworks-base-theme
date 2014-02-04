@@ -27,3 +27,8 @@
     color: red;
 }
 
+body.interim-login .iworks_footer
+{
+    display: none;
+}
+

@@ -8,7 +8,7 @@
  * @package    WordPress
  * @subpackage Generic_iWorks_Theme
  * @author     Marcin Pietrzak <marcin@iworks.pl>
- * @license    http://iworks.pl/ commercial
+ * @license    http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  * @version    3.0.0
  * @link       http://iworks.pl/
  *
@@ -18,7 +18,8 @@ return array(
     'use_tabs' => true,
     'version'  => '0.0',
     'options'  => array(
-        'last_used_tab' => array(
+        array(
+            'name' => 'last_used_tab',
             'type'              => 'hidden',
             'autoload'          => false,
             'sanitize_callback' => 'intval',
@@ -63,6 +64,17 @@ return array(
             'sanitize_callback' => 'intval',
             'default' => 1,
             'description' => __( 'Turn on to convert "width" & "height" image attributes to "data-" attributes.', IWORKS_THEME_NAME ),
+        ),
+        /**
+         * Social Media
+         */
+        array(
+            'label' => __( 'Social Media', IWORKS_THEME_NAME ),
+            'type' => 'heading',
+        ),
+        array(
+            'label' => __( 'Facebook', IWORKS_THEME_NAME ),
+            'type' => 'subheading',
         ),
     ),
 );

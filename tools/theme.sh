@@ -22,6 +22,9 @@ echo "  version: ${THEME_VERSION}"
 echo "  dir:     ${THEME_DIR}"
 
 git clone git@github.com:iworks/iworks-base-theme.git ${THEME_DIR}
+cd ${THEME_DIR}
+git checkout "3.0.0"
+cd ..
 rm -rf ${THEME_DIR}/.git
 
 ( cat ${THEME_DIR}/includes/generic_iworks_theme.php|sed "s/%DATE%/$(date '+%B %Y')/" ) > ${THEME_DIR}/includes/${THEME_CODE}.php

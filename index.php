@@ -31,7 +31,7 @@ if ( is_single() || is_page() ) {
 } else {
     the_excerpt( __( '(more...)', IWORKS_THEME_NAME ) );
 ?>
-        <p><a href="<?php the_permalink(); ?>"><?php _e( 'More...', 'IWORKS_THEME_NAME' ); ?></a></p>
+        <p><a href="<?php the_permalink(); ?>"><?php _e( 'More...', IWORKS_THEME_NAME ); ?></a></p>
 <?php } ?>
     </div>
 </article>

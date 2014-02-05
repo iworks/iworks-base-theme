@@ -56,6 +56,7 @@ class iWorks_Theme_Class
         add_action( 'after_setup_theme', array( &$this, 'i10n' ), 0, 1 );
         add_action( 'after_setup_theme', array( &$this, 'register_sidebars' ) );
         add_action( 'after_setup_theme', array( &$this, 'thumbnails' ) );
+        add_filter( 'image_size_names_choose', array( &$this, 'add_image_sizes_names' ) );
         add_action( 'excerpt_length', array( &$this, 'excerpt_length' ) );
         add_action( 'get_header', array( &$this, 'get_header' ) );
         add_action( 'init', array( &$this, 'init' ) );
@@ -570,6 +571,15 @@ return;
                 add_image_size( $key, $value['width'], $value['height'], $value['crop'] );
             }
         }
+    }
+
+    public function add_image_sizes_names($sizes)
+    {
+        $addsizes = array(
+            'post-icon' => __( 'Post icon.', IWORKS_THEME_NAME),
+        );
+        $newsizes = array_merge($sizes, $addsizes);
+        return $newsizes;
     }
 
     /**

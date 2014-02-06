@@ -16,6 +16,7 @@ Changelog
 * IMPROVMENT: cleaning unused functions (options)
 * IMPROVMENT: permanent turn on theme specific class
 * IMPROVMENT: upgrade IworksOptions to version 2.1.0
+* IMPROVMENT: add thumbnails name to select
 
 ##### 3.0.0 (2013-12-18)
 

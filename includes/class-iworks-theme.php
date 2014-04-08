@@ -71,8 +71,8 @@ class iWorks_Theme_Class
         add_filter( 'next_posts_link_attributes', array( &$this, 'next_posts_link_attributes' ) );
         add_filter( 'previous_posts_link_attributes', array( &$this, 'previous_posts_link_attributes' ) );
         add_filter( 'user_has_cap', array( &$this, 'turn_off_editor_for_files' ), 10, 3 );
-        add_action( 'iwiorks_after_title', array( &$this, 'iworks_after_title' ) );
-        add_filter('iworks_theme_options', array(&$this, 'get_theme_options_array') );
+        add_action( 'iworks_after_title', array( &$this, 'iworks_after_title' ) );
+        add_filter( 'iworks_theme_options', array(&$this, 'get_theme_options_array') );
         /**
          * options
          */
@@ -88,7 +88,7 @@ class iWorks_Theme_Class
             if ($description) {
                 printf(
                     '<p class="description">%s</p>',
-                    $description
+                    preg_replace( array( '/&lt;/', '/&gt;/'), array( '<', '>' ), $description )
                 );
             }
         }

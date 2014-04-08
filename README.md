@@ -13,6 +13,8 @@ Changelog
 ##### 3.1.0 (future)
 
 * BUGFIX: last used tab is now correctly displayed
+* BUGFIX: fix action name
+* BUGFIX: revert enties to tags in description
 * IMPROVMENT: cleaning unused functions (options)
 * IMPROVMENT: permanent turn on theme specific class
 * IMPROVMENT: upgrade IworksOptions to version 2.1.0

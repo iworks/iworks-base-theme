@@ -22,8 +22,8 @@
         </nav>
         <?php do_action( 'iworks_after_menu_default' ); ?>
         <?php if ( is_home() || is_front_page() ) { ?>
-        <div class="description wide">
-            <div id="logo"><span><?php bloginfo( 'title' ); ?></span></div>
+        <div class="wide">
+            <div id="logo"><a href="<?php echo site_url(); ?>"><span><?php bloginfo( 'title' ); ?></span></a></div>
             <?php do_action('iworks_after_title' ); ?>
         </div>
         <?php } ?>

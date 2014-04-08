@@ -29,7 +29,7 @@ wp_title( '|', true, 'right' );
 bloginfo( 'name' );
 
 // Add the blog description for the home/front page.
-$site_description = get_bloginfo( 'description', 'display' );
+$site_description = preg_replace( '/&[^&]+&gt;/', '', get_bloginfo( 'description', 'raw' ) );
 if ( $site_description && ( is_home() || is_front_page() ) ) {
     echo " | $site_description";
 }

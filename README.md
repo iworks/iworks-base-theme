@@ -15,6 +15,7 @@ Changelog
 * BUGFIX: last used tab is now correctly displayed
 * BUGFIX: fix action name
 * BUGFIX: revert enties to tags in description
+* BUGFIX: remove enties from title
 * IMPROVMENT: cleaning unused functions (options)
 * IMPROVMENT: permanent turn on theme specific class
 * IMPROVMENT: upgrade IworksOptions to version 2.1.0

@@ -16,26 +16,22 @@
 
 class iWorks_Theme_Class
 {
-    private $base_version;
 
-    protected $name;
-    protected $uri;
+    private $base_version = IWORKS_THEME_VERSION;
+    protected $dev = false;
+    protected $display_emode = 'flat';
+    protected $errors = array();
+    protected $notices = array();
+    protected $option_group = 'theme';
+    protected $options;
     protected $theme_options;
     protected $theme_options_prefix;
-    protected $display_mode;
-    protected $dev;
-    protected $options;
-    protected $option_group = 'theme';
-
+    protected $uri;
     public $theme_page = 'appearance_page_theme_options';
-    protected $display_emode = 'flat';
-    protected $notices = array();
-    protected $errors = array();
 
     public function __construct()
     {
         $this->display_mode = 'tabs';
-        $this->base_version = '3.0.0';
         $this->theme_options = array();
         $this->uri = get_template_directory_uri();
         $this->dev = ( defined( 'IWORKS_DEV_MODE' ) && IWORKS_DEV_MODE )? '.dev':'';
@@ -220,6 +216,12 @@ class iWorks_Theme_Class
     {
         $theme = wp_get_theme();
         return $theme->Name;
+    }
+
+    private function get_theme_version()
+    {
+        $theme = wp_get_theme();
+        return $theme->Version;
     }
 
     /**
@@ -492,7 +494,12 @@ return;
         if ( is_singular() ) {
             wp_enqueue_script( 'comment-reply' );
         }
-        wp_enqueue_style( __CLASS__, get_stylesheet_uri(), array(), IWORKS_THEME_VERSION );
+        wp_enqueue_style(
+            __CLASS__,
+            get_stylesheet_uri(),
+            array(),
+            $this->get_theme_version()
+        );
     }
 
     /**
@@ -604,7 +611,7 @@ return;
             '<link rel="stylesheet" id="%s" href="%s?ver=%s" type="text/css" media="all" />%s',
             $this->slug_name(__FUNCTION__),
             $this->uri.'/styles/login.css',
-            $this->base_version,
+            IWORKS_THEME_VERSION,
             PHP_EOL
         );
     }

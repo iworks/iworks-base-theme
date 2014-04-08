@@ -12,14 +12,15 @@ Changelog
 
 ##### 3.1.0 (future)
 
-* BUGFIX: last used tab is now correctly displayed
 * BUGFIX: fix action name
-* BUGFIX: revert enties to tags in description
+* BUGFIX: last used tab is now correctly displayed
 * BUGFIX: remove enties from title
+* BUGFIX: revert enties to tags in description
+* IMPROVMENT: add styles.css version
+* IMPROVMENT: add thumbnails name to select
 * IMPROVMENT: cleaning unused functions (options)
 * IMPROVMENT: permanent turn on theme specific class
 * IMPROVMENT: upgrade IworksOptions to version 2.1.0
-* IMPROVMENT: add thumbnails name to select
 
 ##### 3.0.0 (2013-12-18)
 

@@ -621,7 +621,7 @@ return;
      */
     public function wp_dashboard_setup()
     {
-        if ( WPLANG != 'pl_PL' ) {
+        if ( 'pl_PL' != get_option('WPLANG' ) ) {
             return;
         }
         $widget_options = get_option( 'dashboard_widget_options' );

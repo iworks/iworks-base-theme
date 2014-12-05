@@ -21,7 +21,7 @@ echo "  code:    ${THEME_CODE}"
 echo "  version: ${THEME_VERSION}"
 echo "  dir:     ${THEME_DIR}"
 
-git clone git@github.com:iworks/iworks-base-theme.git ${THEME_DIR}
+git clone https://github.com/iworks/iworks-base-theme.git ${THEME_DIR}
 cd ${THEME_DIR}
 git checkout "3.0.0"
 cd ..

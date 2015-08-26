@@ -72,7 +72,7 @@ class iWorks_Theme_Class
         /**
          * options
          */
-        $this->options = new IworksOptions();
+        $this->options = new iworks_options();
         $this->options->set_option_function_name('iworks_theme_options');
         $this->options->set_option_prefix( substr( hash( 'md4', IWORKS_THEME_NAME), 0, 4 ).'_' );
     }
@@ -124,6 +124,14 @@ class iWorks_Theme_Class
         $option_file = plugin_dir_path( dirname( __FILE__ ) ).'etc/options.php';
         if ( is_file( $option_file ) && is_readable( $option_file ) ) {
             $this->theme_options = include_once $option_file;
+            foreach( $this->theme_options['options'] as &$data ) {
+                if ( !array_key_exists( 'label', $data ) ) {
+                    continue;
+                }
+                if ( !array_key_exists( 'title', $data ) ) {
+                    $data['title'] = $data['label'];
+                }
+            }
         }
     }
 
@@ -244,12 +252,11 @@ class iWorks_Theme_Class
                 null,
                 61.42604420746308
             );
-            foreach( $this->theme_options as $field_id => $data ) {
-                if ( !array_key_exists( 'type', $data ) ) {
+            foreach( $this->theme_options['options'] as $field_id => $data ) {
+                if ( !is_array( $data ) || !array_key_exists( 'type', $data ) ) {
                     continue;
                 }
-                if ( 'section' != $data['type'] ) {
-                    d( $data );
+                if ( !preg_match( '/^(section|heading)$/', $data['type'] ) ) {
                     continue;
                 }
                 $subpage = add_submenu_page(
@@ -292,7 +299,7 @@ class iWorks_Theme_Class
             echo IWORKS_THEME_NAME;
             $id = $this->get_screen_id();
             if ( $id ) {
-                foreach( $this->theme_options as $field_id => $data ) {
+                foreach( $this->theme_options['options'] as $field_id => $data ) {
                     if ( 'section' == $data['type'] && $id == crc32( $data['title'] ) ) {
                         printf ( ': %s', $data['title'] );
                     }
@@ -324,8 +331,8 @@ class iWorks_Theme_Class
             $show = false;
             $content = '';
             $section = false;
-            foreach( $this->theme_options as $field_id => $data ) {
-                if ( 'section' == $data['type'] ) {
+            foreach( $this->theme_options['options'] as $field_id => $data ) {
+                if ( preg_match( '/^(section|heading)$/', $data['type'] ) ) {
                     $show = ( $id == crc32( $data['title'] ) );
                     if( $show ) {
                         $section = $data;
@@ -417,7 +424,7 @@ return;
         }
     }
 
-    private function render_one_field($field_id, $data, $label_index, $last_tab)
+    private function render_one_field($field_id, $data, $label_index = '', $last_tab = null )
     {
         $content = '';
         $data['field_id'] = $field_id;
@@ -538,10 +545,10 @@ return;
             array(
                 'name'          => __( 'Default Sidebar', IWORKS_THEME_NAME ),
                 'id'            => 'sidebar-default',
-                'before_widget' => '<div class="widget %2$s">',
-                'after_widget'  => '</div>',
-                'before_title'  => '<h2>',
-                'after_title'   => '</h2>'
+                'before_widget' => '<aside class="widget %2$s">',
+                'after_widget'  => '</aside>',
+                'before_title'  => '<h1 class="widget-title">',
+                'after_title'   => '</h1>',
             )
         );
     }
@@ -621,7 +628,8 @@ return;
      */
     public function wp_dashboard_setup()
     {
-        if ( 'pl_PL' != get_option('WPLANG' ) ) {
+        $locale = get_locale();
+        if ( 'pl_PL' != get_locale() ) {
             return;
         }
         $widget_options = get_option( 'dashboard_widget_options' );
@@ -637,6 +645,7 @@ return;
         wp_add_dashboard_widget( 'dashboard_iworks', $widget_options['dashboard_iworks']['title'], array( &$this, 'wp_dashboard' ) );
         update_option( 'dashboard_widget_options', $widget_options );
     }
+
     public function wp_dashboard()
     {
         if ( !( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
@@ -751,4 +760,26 @@ return;
             $_SERVER['HTTP_HOST']
         );
     }
+
+
+    public function single_post_header_style()
+    {
+        if ( !is_singular() ) {
+            return;
+        }
+        if ( !has_post_thumbnail() ) {
+            return;
+        }
+        $thumbnail_id = get_post_thumbnail_id( get_the_ID());
+        if ( empty( $thumbnail_id ) ) {
+            return;
+        }
+        $post_thumbnail = wp_get_attachment_image_src($thumbnail_id,'post-thumbnail');
+        return sprintf(
+            ' style="background-image:url(%s);padding-top:%dpx;" ',
+            $post_thumbnail[0],
+            $post_thumbnail[2]
+        );
+    }
+
 }

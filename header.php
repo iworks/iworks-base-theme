@@ -17,37 +17,11 @@
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <title><?php
-/*
- * Print the <title> tag based on what is being viewed.
- */
-global $page, $paged;
-
-wp_title( '|', true, 'right' );
-
-// Add the blog name.
-bloginfo( 'name' );
-
-// Add the blog description for the home/front page.
-$site_description = preg_replace( '/&[^&]+&gt;/', '', get_bloginfo( 'description', 'raw' ) );
-if ( $site_description && ( is_home() || is_front_page() ) ) {
-    echo " | $site_description";
-}
-
-// Add a page number if necessary:
-if ( $paged >= 2 || $page >= 2 ) {
-    echo ' | ' . sprintf( __( 'Page %s', IWORKS_THEME_NAME ), max( $paged, $page ) );
-}
-
-?></title>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <link href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico" rel="Bookmark" />
     <link href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico" rel="shortcut icon" />
     <meta name="viewport" content="width=device-width" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!--[if lt IE 9]>
-    <script src="<?php echo get_template_directory_uri(); ?>/scripts/html5.js"></script>
-<![endif]-->
     <?php wp_head(); ?>
 </head>
 

@@ -37,9 +37,10 @@ class iWorks_Theme_Class
         $this->dev = ( defined( 'IWORKS_DEV_MODE' ) && IWORKS_DEV_MODE )? '.dev':'';
         /**
          * theme_options_prefix
+         * remeber to load options after i10n
          */
         $this->theme_options_prefix = substr( hash( 'md4', IWORKS_THEME_NAME), 0, 4 ) . '_';
-        $this->get_theme_options();
+        add_action('after_setup_theme', array($this, 'get_theme_options'), PHP_INT_MAX );
         /**
          * actions && filters
          */
@@ -515,10 +516,17 @@ return;
     public function add_theme_supports()
     {
         add_theme_support( 'automatic-feed-links' );
-        add_theme_support( 'html5' );
         add_theme_support( 'menus' );
         add_theme_support( 'post-thumbnails' );
         add_theme_support( 'custom-background' );
+        $args = array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption'
+        );
+        add_theme_support( 'html5', $args );
     }
 
     /**
